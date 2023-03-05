@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Membuat Class Error</title>
+</head>
+
+<body>
+	<script>
+		class ValidatonError extends Error {
+			constructor(message, field) {
+				super(message);
+				this.field = field;
+			}
+		}
+
+		class mathUtil {
+			static sum(...numbers) {
+				if (numbers.length === 0) {
+					throw new ValidatonError('Total parameter harus lebih dari 0'); // menambahkan error
+				}
+				let total = 0;
+				for (const number of numbers) {
+					total += number;
+				}
+				return total;
+			}
+		}
+
+		try {
+			console.info(mathUtil.sum());
+			console.info('Naufal');
+		} catch (error) {
+			if (error instanceof ValidatonError) {
+				console.info(`Terjadi eror di field ${error.field} dengan eror ${error.message}`)
+			} else {
+				console.info(`Terjadi eror pada ${error.message}`)
+			}
+		} finally {
+			console.info("Program selesai")
+		}
+
+		console.info("Kode Program tidak akan berhenti")
+	</script>
+</body>
+
+</html>

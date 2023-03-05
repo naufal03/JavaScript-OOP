@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Operator instanceof</title>
+</head>
+
+<body>
+	<script>
+		class Employee {
+
+		}
+		class Manager extends Employee{
+
+		}
+
+		const one = new Employee();
+		const two = new Manager();
+
+		console.info(one instanceof Employee);
+		console.info(one instanceof Manager);
+
+		// True karena pewarisan
+		console.info(two instanceof Employee);
+		console.info(two instanceof Manager);
+	</script>
+</body>
+
+</html>
